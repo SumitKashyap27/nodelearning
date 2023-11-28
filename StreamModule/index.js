@@ -17,13 +17,17 @@ const server = http.createServer();
 // handle stream events-> data, end, and error
 
 server.on("request",(req,res)=>{
-    const rstream = fs.createReadStream("input.txt");
-    rstream.on('data',(chunkdata)=>{
-        res.write(chunkdata);
-    });
-    rstream.on("end",()=>{
-        res.end();
-    });
-});
+//     const rstream = fs.createReadStream("input.txt");
+//     rstream.on('data',(chunkdata)=>{
+//         res.write(chunkdata);
+//     });
+//     rstream.on("end",()=>{
+//         res.end();
+//     });
+// });
 
+// 3rd way
+    const rstream = fs.createReadStream("input.txt");
+    rstream.pipe(res);
+});
 server.listen(8000, "127.0.0.1");
