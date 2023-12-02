@@ -27,13 +27,14 @@ const port = 8000;
 
 //now we are making it dynamic using view engine or template engine by using hbs we can use different template engines like pug, mustache , ejs 
 
-const staticPath=path.join(__dirname,"../public");
-
+//const staticPath=path.join(__dirname,"../public");
+const viewPath=path.join(__dirname,"../views");
 // to  set the view engine 
 //we need to name it which engine we are using
 
 app.set("view engine","hbs"); //we have to name it like here i havbe used hbs 
 // if you are using pug or ejs you have to write it in place of hbs
+app.set("views", viewPath);
 
 app.get("",(req,res)=>{
     res.render('index')//here when we type like this we are rendering the file 
@@ -61,3 +62,8 @@ app.listen(port,()=>{
 //     at D:\nodejslearning\EXPRESSjs\node_modules\express\lib\router\index.js:284:15
 //     at Function.process_params (D:\nodejslearning\EXPRESSjs\node_modules\express\lib\router\index.js:346:12)
 //     at next (D:\nodejslearning\EXPRESSjs\node_modules\express\lib\router\index.js:280:10)
+
+
+//  by using these two we have fixed the error and ve even can change name of that views folder in view path change its name and change it in foldder aalso and done 
+// const viewPath=path.join(__dirname,"../views");
+// app.set("views", viewPath);
